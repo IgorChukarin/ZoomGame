@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
             UnlockCursor();
         }
 
-        if(Input.GetMouseButton(0) && PlayerController.instance.hasDied == false)
+        if(Input.GetMouseButton(0) && PlayerController.instance.hasDied == false && BannerOnScript.buttonIsActive == false)
         {
             LockCursor();
         }
@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         {
             UnlockCursor();
         }
+
     }
 
     private void LockCursor()

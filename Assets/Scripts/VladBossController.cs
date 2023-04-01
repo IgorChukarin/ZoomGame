@@ -20,9 +20,9 @@ public class VladBossController : MonoBehaviour
     public GameObject bullet;
     public Transform firePoint;
 
+    public GameObject vladFightMusic;
 
     public Animator anim;
-
 
 
     // Start is called before the first frame update
@@ -34,10 +34,14 @@ public class VladBossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange && PlayerController.instance.hasDied == false)
+        if(Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange && PlayerController.instance.hasDied == false && health > 0)
         {
             AttackPlayer();
         } 
+        else if (health <= 0)
+        {
+            Stand();
+        }
         else 
         {
             Stand();
@@ -78,13 +82,21 @@ public class VladBossController : MonoBehaviour
         health--;
         if (health <= 0) 
         {
-            Destroy(gameObject);
+            anim.SetBool("isDead", true);
             Instantiate(explosion, transform.position, transform.rotation);
             AudioController.instance.PlayEnemyDeath();
+            vladFightMusic.SetActive(false);
+
+            Invoke("StartCutScene", 10);
         }
         else
         {
             AudioController.instance.PlayEnemyShot();
         }
+    }
+
+    void StartCutScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

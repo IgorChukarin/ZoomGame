@@ -42,7 +42,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "Enemy")
         {
             shouldOpen = true;
         }
@@ -50,7 +50,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "Enemy")
         {
             shouldOpen = false;
         }

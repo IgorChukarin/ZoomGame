@@ -23,13 +23,15 @@ public class EnemyController : MonoBehaviour
 
     public RoomEnter room;
 
+    private bool sawPlayerOnce;
+
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -40,12 +42,16 @@ public class EnemyController : MonoBehaviour
         bool shouldAttack = room.isEntered == true;
 
 
-        if ((playerIsInRange && playerIsAlive) || (shouldAttack && playerIsAlive))
-
+        if ((shouldAttack || sawPlayerOnce) && playerIsAlive)
         {
+            if(sawPlayerOnce == false)
+            {
+                PlayAlert();
+            }
+            sawPlayerOnce = true;
             AttackPlayer();
         } 
-        else 
+        else if (!playerIsAlive)
         {
             Stand();
         }
@@ -60,7 +66,7 @@ public class EnemyController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(rayFront, out hit))
         {
-            //Debug.Log("Distance is " + Vector3.Distance(gameObject.transform.position, hit.transform.position));
+            Debug.Log("Distance is " + Vector3.Distance(gameObject.transform.position, hit.transform.position));
         }
 
 
@@ -97,7 +103,7 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(explosion, transform.position, transform.rotation);
-
+            PlayerController.instance.enemiesKilled += 1;
             AudioController.instance.PlayEnemyDeath();
         }
         else

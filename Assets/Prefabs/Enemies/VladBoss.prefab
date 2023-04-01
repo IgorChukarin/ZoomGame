@@ -215,6 +215,7 @@ MonoBehaviour:
   fireRate: 0.1
   bullet: {fileID: 4270915414289294292, guid: d4cfc1f3fc8fc6d4d807d6d2c5b56e48, type: 3}
   firePoint: {fileID: 5979302680758175441}
+  vladFightMusic: {fileID: 0}
   anim: {fileID: 5979302681219764393}
 --- !u!50 &5979302681219764396
 Rigidbody2D:

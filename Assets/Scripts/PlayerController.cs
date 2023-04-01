@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     public float fireRate;
     float nextFire;
 
+    public int enemiesKilled;
+
     private void Awake()
     {
         instance = this;

@@ -10,6 +10,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("Scenes/MainMenu");
+    }
+
 
 
     // Start is called before the first frame update
