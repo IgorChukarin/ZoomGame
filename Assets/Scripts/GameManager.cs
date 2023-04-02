@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static bool gameHasEnded = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +15,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) || PlayerController.instance.hasDied == true || gameHasEnded)
         {
             UnlockCursor();
         }
@@ -22,12 +24,6 @@ public class GameManager : MonoBehaviour
         {
             LockCursor();
         }
-
-        if(PlayerController.instance.hasDied == true)
-        {
-            UnlockCursor();
-        }
-
     }
 
     private void LockCursor()
@@ -36,7 +32,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false; 
     }
 
-    private void UnlockCursor()
+    public static void UnlockCursor()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

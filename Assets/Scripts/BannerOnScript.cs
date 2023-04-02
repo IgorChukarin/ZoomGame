@@ -31,5 +31,6 @@ public class BannerOnScript : MonoBehaviour
     void SetMainMenuButtonActive()
     {
         mainMenuButton.SetActive(true);
+        GameManager.UnlockCursor();
     }
 }
