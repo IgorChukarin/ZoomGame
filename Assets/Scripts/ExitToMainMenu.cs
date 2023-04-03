@@ -3,25 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class ExitToMainMenu : MonoBehaviour
 {
-    public void PlayGame()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene("level 1");
+        SceneManager.LoadScene("MainMenu");
     }
-
-    public void PlayGameVR()
-    {
-        SceneManager.LoadScene("Scenes/level VR");
-    }
-
-    public void GoToMainMenu()
-    {
-        SceneManager.LoadScene("Scenes/MainMenu");
-    }
-
-
-
     // Start is called before the first frame update
     void Start()
     {

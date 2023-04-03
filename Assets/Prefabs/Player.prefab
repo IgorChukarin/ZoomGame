@@ -141,8 +141,11 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 100
   deadScreen: {fileID: 0}
+  hasDied: 0
   healthText: {fileID: 0}
   ammoText: {fileID: 0}
+  fireRate: 0
+  enemiesKilled: 0
 --- !u!50 &3035300925911335168
 Rigidbody2D:
   serializedVersion: 4
