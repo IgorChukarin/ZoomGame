@@ -21,6 +21,7 @@ public class VladBossController : MonoBehaviour
     public Transform firePoint;
 
     public GameObject vladFightMusic;
+    public GameObject vladDeathMusic;
 
     public Animator anim;
 
@@ -28,7 +29,7 @@ public class VladBossController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        vladDeathMusic.SetActive(false);
     }
 
     // Update is called once per frame
@@ -86,8 +87,10 @@ public class VladBossController : MonoBehaviour
             Instantiate(explosion, transform.position, transform.rotation);
             AudioController.instance.PlayEnemyDeath();
             vladFightMusic.SetActive(false);
+            vladDeathMusic.SetActive(true);
 
-            Invoke("StartCutScene", 10);
+
+            Invoke("StartCutScene", 11);
         }
         else
         {

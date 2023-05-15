@@ -45,6 +45,7 @@ public class Door : MonoBehaviour
         if (other.tag == "Player" || other.tag == "Enemy")
         {
             shouldOpen = true;
+            Debug.Log("open");
         }
     }
 
@@ -53,6 +54,7 @@ public class Door : MonoBehaviour
         if (other.tag == "Player" || other.tag == "Enemy")
         {
             shouldOpen = false;
+            Debug.Log("close");
         }
     }
 }

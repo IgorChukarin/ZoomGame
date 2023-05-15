@@ -3852,6 +3852,8 @@ MonoBehaviour:
   fireRate: 1
   bullet: {fileID: 4270915414289294292, guid: 1058b6c8162121e408899e3339733fd5, type: 3}
   firePoint: {fileID: 1334219274}
+  anim: {fileID: 0}
+  room: {fileID: 0}
 --- !u!50 &596847944
 Rigidbody2D:
   serializedVersion: 4
@@ -10796,9 +10798,15 @@ MonoBehaviour:
   bulletImpact: {fileID: 6570841882281995323, guid: e25131f3512bbf54aa6e8590d4dfe0fa, type: 3}
   currentAmmo: 10
   gunAnim: {fileID: 739396390}
+  anim: {fileID: 739396390}
   currentHealth: 0
   maxHealth: 100
   deadScreen: {fileID: 1949159530}
+  hasDied: 0
+  healthText: {fileID: 0}
+  ammoText: {fileID: 0}
+  fireRate: 0
+  enemiesKilled: 0
 --- !u!58 &1874437189
 CircleCollider2D:
   m_ObjectHideFlags: 0
